@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using VSoftwareTask.Classes;
 
 namespace VSoftwareTask
 {
@@ -143,6 +145,29 @@ namespace VSoftwareTask
 
 
 
+            // TASK 1. Sortable Shapes
+
+            //var side = 1.1234D;
+            //var radius = 1.1234D;
+            //var triangleBase = 5D;
+            //var height = 2D;
+            //var shapes = new List<Shape>()
+            //{
+            //    new Circle(radius),
+            //    new Square(side),
+            //    new Rectangle(side, height),
+            //    new Triangle(triangleBase, height) 
+            //};
+            //foreach (var shape in shapes)
+            //{
+            //    Console.WriteLine(shape.CalculateArea());
+            //}
+            //Console.WriteLine("\nSorted : ");
+            //shapes.Sort();
+            //foreach (var shape in shapes)
+            //{
+            //    Console.WriteLine(shape.CalculateArea());
+            //}
         }
     }
 }
