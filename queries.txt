@@ -1,0 +1,34 @@
+1) Select product with product name that begins with ‘C’:
+   SELECT * FROM Products WHERE ProductName LIKE 'C%';
+
+
+2) Select product with the smallest price:
+   SELECT * FROM Products WHERE Price = (SELECT MIN(Price) FROM Products);
+
+
+3) Select cost of all products from the USA:
+   SELECT SUM(PriceCountry.Price) FROM
+   (SELECT Products.Price, Suppliers.Country
+   FROM Products INNER JOIN Suppliers ON Products.SupplierId = Suppliers.SupplierId) AS PriceCountry
+   WHERE PriceCountry.Country = 'USA';
+
+
+4) Select suppliers that supply Condiments:
+   SELECT DISTINCT Suppliers.SupplierId, Suppliers.SupplierName, Suppliers.City, Suppliers.Country
+   FROM Products
+   INNER JOIN Suppliers
+   ON Products.SupplierId = Suppliers.SupplierId
+   INNER JOIN Categories
+   ON Products.CategoryId = Categories.CategoryId
+   WHERE Categories.CategoryName = 'Condiments';
+
+
+5) Add to database new supplier with name: ‘Norske Meierier’, city: ‘Lviv’, country: ‘Ukraine’ which
+will supply new product with name: ‘Green tea’, price: 10, and related to category with name:
+‘Beverages’:
+   INSERT INTO Suppliers(SupplierId, SupplierName, City, Country)
+   VALUES (6, 'Norske Meierier', 'Lviv', 'Ukraine');
+
+   INSERT INTO Products(ProductId, ProductName, SupplierId, CategoryId, Price)
+   VALUES (6, 'Green tea', 6, 1, 10);
+	
